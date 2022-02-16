@@ -6,12 +6,11 @@ import { setupCache } from 'axios-cache-interceptor'
 const instance =  Axios.create({
   baseURL: 'https://api.artic.edu/api/v1/artworks',
 })
-
 const api = setupCache(instance)
 
 const getObjects = async () => {
   try {
-    const res = await api.get('?page=4&limit=100&fields=id,title,artist_display,date_display,image_id,color,colorfulness,category_titles')
+    const res = await api.get('/search?query[term][is_public_domain]=true&page=1&limit=100&fields=id,title,artist_display,date_display,image_id,colorfulness,category_titles,is_public_domain')
     return res.data
   } catch(err) {
     console.log(err)

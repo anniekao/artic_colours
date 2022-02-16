@@ -1,18 +1,20 @@
 import React from 'react'
 import useImageColor from 'use-image-color'
+import hexSorter from 'hexsorter'
 
 export default function Card({ artwork }) {
-  const { colors } = useImageColor(`https://www.artic.edu/iiif/2/${artwork.image_id}/full/500,/0/default.jpg`, { cors: true, colors: 5 })
+  const { colors } = useImageColor(`https://www.artic.edu/iiif/2/${artwork.image_id}/full/500,/0/default.jpg`, { cors: true, colors: 8 })
+  const sortedColors = colors && hexSorter.sortColors(colors, 'mostBrightColor')
 
   const renderColours =() => (
     <div className='flex'>
-      {colors.map(color => (
+      {sortedColors.map(color => (
         <div
           key={color}
-          className='mr-2 last:mr-0 flex items-end rounded'
-          style={{ backgroundColor: `${color}`, height: '100px', width: '100px' }}
+          className='min-h-0 max-w-max py-14 flex items-end rounded'
+          style={{ backgroundColor: `${color}` }}
         >
-          <p>{color}</p>
+          <p className='text-xs'>{color}</p>
         </div>
       ))}
     </div>

@@ -12,7 +12,7 @@ export default function App() {
       console.log('OBJECTS', queryRes)
       setQueryData(queryRes)
       const filteredArtwork = queryRes
-        .data.filter(artwork => artwork.image_id && artwork.colorfulness > 20)
+        .data.filter(artwork => artwork.image_id && artwork.colorfulness > 20 && artwork.is_public_domain)
       console.log('FILTERED ARTWORK', filteredArtwork)
       setArtworkData(filteredArtwork)
     }
@@ -33,13 +33,13 @@ export default function App() {
   }
 
   return (
-    <>
-      <header>
+    <div className='container mx-auto'>
+      <header className='container mx-auto flex justify-center'>
         <h1>Art Institute of Chicago Colour Palettes</h1>
       </header>
-      <main className='container mx-auto columns-3 pt-8'>
+      <main className='columns-3 pt-8'>
         {artworkData && renderArtworks()}
       </main>
-    </>
+    </div>
   )
 }
