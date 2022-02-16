@@ -10,14 +10,14 @@ export default function Card({ artwork }) {
   const sortedColors = colors && hexSorter.sortColors(colors, 'mostBrightColor')
 
   const renderColours =() => (
-    <div className='flex flex-row w-full'>
+    <div className='flex flex-row'>
       {sortedColors.map(color => (
         <div
           key={uuidv4()}
-          className='min-h-0 w-full py-14 px-8 items-end grow hover:cursor-pointer duration-100 first:rounded-tl first:rounded-bl last:rounded-tr last:rounded-br'
+          className='min-h-0 w-full py-14 px-8 items-end hover:basis-16 hover:cursor-pointer first:rounded-tl first:rounded-bl last:rounded-tr last:rounded-br'
           style={{ backgroundColor: `${color}` }}
         >
-          {/* <p className='text-xs'>{color}</p> */}
+          {/* <p className='text-xs mix-blend-normal hover:mix-blend-overlay'>{color}</p> */}
         </div>
       ))}
     </div>
@@ -25,12 +25,15 @@ export default function Card({ artwork }) {
 
   return (
     <article className='mb-20 mr-8 last:m-0 p-4 max-w-lg self-start break-inside-avoid border-solid border border-slate-200 shadow-2xl rounded'>
-      <figure>
+      <figcaption className='mb-8 font-header'>
+        {artwork.title} <br />
+        {artwork.artist_display}
+      </figcaption>
+      <figure className='mb-8'>
         <img
           src={`https://www.artic.edu/iiif/2/${artwork.image_id}/full/500,/0/default.jpg`}
           alt={artwork.title}
         />
-        <figcaption>{artwork.title} - {artwork.artist_display}</figcaption>
       </figure>
       {colors && renderColours()}
     </article>
