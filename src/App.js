@@ -24,11 +24,11 @@ export default function App() {
 
   const renderArtworks = () => {
     return (
-      <div>
+      <>
         {artworkData.map(artwork => (
           <Card key={artwork.id} artwork={artwork} />
         ))}
-      </div>
+      </>
     )
   }
 
@@ -37,7 +37,7 @@ export default function App() {
       <header className='container mx-auto flex justify-center'>
         <h1>Art Institute of Chicago Colour Palettes</h1>
       </header>
-      <main className='columns-3 pt-8'>
+      <main className='pt-8 masonry sm:masonry-sm md:masonry-md'>
         {artworkData && renderArtworks()}
       </main>
     </div>
