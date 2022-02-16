@@ -11,7 +11,7 @@ const api = setupCache(instance)
 
 const getObjects = async () => {
   try {
-    const res = await api.get('?page=1&limit=100&fields=id,title,artist_display,date_display,image_id,color,colorfulness,category_titles')
+    const res = await api.get('?page=4&limit=100&fields=id,title,artist_display,date_display,image_id,color,colorfulness,category_titles')
     return res.data
   } catch(err) {
     console.log(err)

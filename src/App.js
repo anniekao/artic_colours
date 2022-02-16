@@ -11,8 +11,8 @@ export default function App() {
       const queryRes = await articService.getObjects()
       console.log('OBJECTS', queryRes)
       setQueryData(queryRes)
-      // filter out artwork without an image
-      const filteredArtwork = queryRes.data.filter(artwork => artwork.image_id && artwork.colorfulness > 20 && artwork.category_titles.includes('Photography and Media'))
+      const filteredArtwork = queryRes
+        .data.filter(artwork => artwork.image_id && artwork.colorfulness > 20)
       console.log('FILTERED ARTWORK', filteredArtwork)
       setArtworkData(filteredArtwork)
     }
@@ -33,8 +33,13 @@ export default function App() {
   }
 
   return (
-    <div>
-      {artworkData && renderArtworks()}
-    </div>
+    <>
+      <header>
+        <h1>Art Institute of Chicago Colour Palettes</h1>
+      </header>
+      <main className='container mx-auto columns-3 pt-8'>
+        {artworkData && renderArtworks()}
+      </main>
+    </>
   )
 }

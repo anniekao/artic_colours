@@ -1,27 +1,33 @@
 import React from 'react'
-// import useImageColor from 'use-image-color'
+import useImageColor from 'use-image-color'
 
 export default function Card({ artwork }) {
+  const { colors } = useImageColor(`https://www.artic.edu/iiif/2/${artwork.image_id}/full/500,/0/default.jpg`, { cors: true, colors: 5 })
 
-  // const { colours } = useImageColor(`https://www.artic.edu/iiif/2/${artwork.image_id}/full/200,/0/default.jpg`, { cors: true, colors: 2 })
-
-  console.log(artwork)
-  // console.log(colours)
-  // const renderColours =() => (
-  //   <div>
-  //     {colours.map(colour => (
-  //       <div key={colour} style={{ backgroundColor: `${colour}`, height: '100px', width: '100px' }}>
-  //         {colour}
-  //       </div>
-  //     ))}
-  //   </div>
-  // )
+  const renderColours =() => (
+    <div className='flex'>
+      {colors.map(color => (
+        <div
+          key={color}
+          className='mr-2 last:mr-0 flex items-end rounded'
+          style={{ backgroundColor: `${color}`, height: '100px', width: '100px' }}
+        >
+          <p>{color}</p>
+        </div>
+      ))}
+    </div>
+  )
 
   return (
-    <div>
-      <img src={`https://www.artic.edu/iiif/2/${artwork.image_id}/full/200,/0/default.jpg`} />
-      {artwork.title} {artwork.artist_display}
-      {/* {renderColours()} */}
-    </div>
+    <article className='mb-20 mr-8 last:m-0 p-4 border-solid border border-slate-200 shadow-2xl rounded'>
+      <figure>
+        <img
+          src={`https://www.artic.edu/iiif/2/${artwork.image_id}/full/500,/0/default.jpg`}
+          alt={artwork.title}
+        />
+        <figcaption>{artwork.title} - {artwork.artist_display}</figcaption>
+      </figure>
+      {colors && renderColours()}
+    </article>
   )
 }
