@@ -14,7 +14,7 @@ export default function Card({ artwork }) {
       {sortedColors.map(color => (
         <div
           key={uuidv4()}
-          className='min-h-0 w-full py-14 px-8items-end first:rounded-tl first:rounded-bl last:rounded-tr last:rounded-br'
+          className='min-h-0 w-full py-14 px-8 items-end first:rounded-tl first:rounded-bl last:rounded-tr last:rounded-br'
           style={{ backgroundColor: `${color}` }}
         >
           <p className='text-xs invisible hover:visible hover:mix-blend-overlay'>{color}</p>
