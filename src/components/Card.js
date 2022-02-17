@@ -1,4 +1,4 @@
-import React from 'react'
+import React, { useState } from 'react'
 import { v4 as uuidv4 } from 'uuid'
 import hexSorter from 'hexsorter'
 import { usePalette } from 'react-palette'
@@ -8,16 +8,23 @@ export default function Card({ artwork }) {
   const { data } = usePalette(imgUrl)
   const colors = Object.keys(data).map(k => (data[k]))
   const sortedColors = colors && hexSorter.sortColors(colors, 'mostBrightColor')
+  const [copySuccess, setCopySuccess] = useState('')
 
+  const copyHex = (hex) => {
+    navigator.clipboard.writeText(hex)
+    setCopySuccess(`${hex} copied to clipboard!`)
+  }
+  console.log(copySuccess)
   const renderColours =() => (
-    <div className='flex flex-row shrink'>
+    <div className='flex flex-row'>
       {sortedColors.map(color => (
         <div
           key={uuidv4()}
-          className='min-h-0 w-full py-14 px-2 first:rounded-tl first:rounded-bl last:rounded-tr last:rounded-br'
+          className='flex justify-center min-h-0 w-1/4 py-14 px-2 group hover:cursor-pointer hover:w-1/2 transition-all first:rounded-tl first:rounded-bl last:rounded-tr last:rounded-br'
           style={{ backgroundColor: `${color}` }}
+          onClick={() => copyHex(color)}
         >
-          {/* <p className='text-xs mix-blend-overlay'>{color}</p> */}
+          <span className='opacity-0 absolute group-hover:opacity-100 text-xs mix-blend-overlay'>{color}</span>
         </div>
       ))}
     </div>
