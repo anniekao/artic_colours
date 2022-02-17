@@ -13,14 +13,16 @@
 [] search bar
 [x] next / prev page arrows - have the arrows on the right and left side of the screen and accessible at any time on larger screens, hidden on mobile
   - for now, settled on having arrows at the top and bottom of the page, since this was the solution that would work on all devices
+[] display a toast message when the hex has been successfully copied
+[] replace hex value with a checkmark icon on copy
 
 # Features
 [] as a user I want to choose a department or subject, e.g. African Art, and have palettes generated from objects in that Collection
 [x] as a user I want to have palettes shown in squares
 [] as a user I want to see information about the art
 [] as a user I want to be able to save palettes
-[] as a user I want to see hex values for colours
-[] as a user I want to be able to copy values to my clipboard
+[x] as a user I want to see hex values for colours
+[x] as a user I want to be able to copy values to my clipboard
 [] as a user I want to be able to like color palettes
 [] random image / colour palette feature with a 'generate' button
 [] images link to the art institute

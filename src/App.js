@@ -2,6 +2,7 @@ import React, { useEffect, useState } from 'react'
 import articService from './services/articService.js'
 import Card from './components/Card'
 import PageNav from './components/PageNav.js'
+import { filterArtwork } from './helpers/helpers.js'
 
 export default function App() {
   const [queryData, setQueryData] = useState(null)
@@ -10,10 +11,6 @@ export default function App() {
   useEffect(() => {
     document.title = 'Artful Colour Palettes'
   })
-
-  const filterArtwork = (artworks) => {
-    return artworks.filter(artwork => artwork.image_id && artwork.colorfulness > 20)
-  }
 
   useEffect(() => {
     async function getObjects() {
@@ -66,6 +63,8 @@ export default function App() {
     getNextPage(prevPage)
   }
 
+  // Switch to a two-column grid when there are less than five items in artworkData
+  // Prevents cards from being broken up over several columns
   const handleFewItemsLayout = () => {
     if (artworkData.length < 5) {
       return 'masonry lg:masonry-lg'

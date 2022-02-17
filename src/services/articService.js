@@ -1,7 +1,7 @@
 import Axios from 'axios'
 import { setupCache } from 'axios-cache-interceptor'
 const baseUrl = 'https://api.artic.edu/api/v1/artworks'
-// Refer to the Art Institute of Chiago API docs for more information: https://api.artic.edu/docs/
+// Refer to the Art Institute of Chicago API docs for more information: https://api.artic.edu/docs/
 
 const api = setupCache(Axios)
 
