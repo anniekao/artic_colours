@@ -7,7 +7,7 @@ const api = setupCache(Axios)
 
 const getObjects = async () => {
   try {
-    const res = await api.get(`${baseUrl}?page=1&limit=100&fields=id,title,artist_display,date_display,image_id,colorfulness,category_titles,is_public_domain`)
+    const res = await api.get(`${baseUrl}?page=1&limit=50&fields=id,title,artist_display,date_display,image_id,colorfulness,category_titles,is_public_domain`)
     return res.data
   } catch(err) {
     console.log(err)
