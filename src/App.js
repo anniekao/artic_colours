@@ -67,7 +67,7 @@ export default function App() {
   }
 
   return (
-    <div className='container mx-auto pt-20 pb-20 text-slate-800'>
+    <div className='container mx-auto pt-20 pb-20 pr-4 pl-4 text-slate-800'>
       <header className='container p-2 pb-20 mx-auto'>
         <h1 className='font-header font-extrabold sm:text-8xl text-7xl pb-8'>
             Artful Colour <br /> Palettes
@@ -80,7 +80,7 @@ export default function App() {
         <PageNav handleNextPage={handleNextPage} handlePrevPage={handlePrevPage} />
       </div>
       <main className='flex justify-center'>
-        <div className='masonry sm:masonry-sm lg:masonry-lg'>
+        <div className='masonry lg:masonry-lg xl:masonry-xl'>
           {artworkData && renderArtworks()}
         </div>
       </main>

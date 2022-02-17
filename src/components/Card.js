@@ -14,17 +14,17 @@ export default function Card({ artwork }) {
       {sortedColors.map(color => (
         <div
           key={uuidv4()}
-          className='min-h-0 w-full py-14 px-8 items-end first:rounded-tl first:rounded-bl last:rounded-tr last:rounded-br'
+          className='min-h-0 w-full py-14 px-2 first:rounded-tl first:rounded-bl last:rounded-tr last:rounded-br'
           style={{ backgroundColor: `${color}` }}
         >
-          <p className='text-xs invisible hover:visible hover:mix-blend-overlay'>{color}</p>
+          {/* <p className='text-xs mix-blend-overlay'>{color}</p> */}
         </div>
       ))}
     </div>
   )
 
   return (
-    <article className='mb-20 last:m-0 p-4 max-w-lg self-start break-inside-avoid border-solid border border-slate-200 shadow-2xl rounded'>
+    <article className='mb-20 last:m-0 p-4 max-w-sm md:max-w-lg self-start break-inside-avoid border-solid border border-slate-200 shadow-2xl rounded'>
       <figcaption className='mb-8 font-header'>
         <span className='font-semibold text-lg'>{artwork.title}</span> <br />
         {artwork.artist_display}

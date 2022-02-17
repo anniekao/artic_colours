@@ -17,12 +17,12 @@
           row-gap: 0.125rem;
           column-count: 1;
       }
-      .masonry-sm {
+      .masonry-lg {
           column-gap: 1.5em;
           row-gap: 0.125rem;
           column-count: 2;
       }
-      .masonry-lg {
+      .masonry-xl {
           column-gap: 1.5em;
           row-gap: 0.125rem;
           column-count: 3;
