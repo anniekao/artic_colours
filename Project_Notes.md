@@ -2,16 +2,17 @@
 
 
 # Design Todos
-[] fix issue when there is only one card - current bug shows the card broken up into three columns -> col 1 is the title, 2 the image, three the palette
+[x] fix issue when there is only one card - current bug shows the card broken up into three columns -> col 1 is the title, 2 the image, three the palette
 [] add footer
-[] get colour palette hex to display - hover over the colour, have the square expand and the colour hex value appear, copy the hex to the clipboard on click, see coolors for an example of the expected behaviour
+[x] get colour palette hex to display - hover over the colour, have the square expand and the colour hex value appear, copy the hex to the clipboard on click, see coolors for an example of the expected behaviour
 [] while content is loading show skeleton content
 [] link to the ArtIC page if available
 [] link to wiki pages for artist info - potentially find more info about the pages (look at API docs if links are provided a la MoMA)
   - show info as a tooltip? Like on the Criterion Channel for movie info?
 [] random artwork generator
 [] search bar
-[] next / prev page arrows - have the arrows on the right and left side of the screen and accessible at any time on larger screens, hidden on mobile
+[x] next / prev page arrows - have the arrows on the right and left side of the screen and accessible at any time on larger screens, hidden on mobile
+  - for now, settled on having arrows at the top and bottom of the page, since this was the solution that would work on all devices
 
 # Features
 [] as a user I want to choose a department or subject, e.g. African Art, and have palettes generated from objects in that Collection

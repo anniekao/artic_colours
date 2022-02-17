@@ -66,6 +66,15 @@ export default function App() {
     getNextPage(prevPage)
   }
 
+  const handleFewItemsLayout = () => {
+    if (artworkData.length < 5) {
+      return 'masonry lg:masonry-lg'
+    } else {
+      return 'masonry lg:masonry-lg xl:masonry-xl'
+    }
+  }
+  let mainGridLayout = handleFewItemsLayout()
+
   return (
     <div className='container mx-auto pt-20 pb-20 pr-4 pl-4 text-slate-800'>
       <header className='container p-2 pb-20 mx-auto'>
@@ -80,7 +89,7 @@ export default function App() {
         <PageNav handleNextPage={handleNextPage} handlePrevPage={handlePrevPage} />
       </div>
       <main className='flex justify-center'>
-        <div className='masonry lg:masonry-lg xl:masonry-xl'>
+        <div className={mainGridLayout}>
           {artworkData && renderArtworks()}
         </div>
       </main>
