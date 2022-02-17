@@ -7,6 +7,10 @@ export default function App() {
   const [queryData, setQueryData] = useState(null)
   const [artworkData, setArtworkData] = useState([])
 
+  useEffect(() => {
+    document.title = 'Artful Colour Palettes'
+  })
+
   const filterArtwork = (artworks) => {
     return artworks.filter(artwork => artwork.image_id && artwork.colorfulness > 20)
   }
@@ -28,11 +32,15 @@ export default function App() {
 
   const getNextPage = async (pageUrl) => {
     console.log('GET NEXT PAGE URL', pageUrl)
-    const queryRes = await articService.getNextPage(pageUrl)
-    setQueryData(queryRes)
-    const filteredArtwork = filterArtwork(queryRes.data)
-    console.log('NEXT FILTERED', filteredArtwork)
-    setArtworkData(filteredArtwork)
+    try{
+      const queryRes = await articService.getNextPage(pageUrl)
+      setQueryData(queryRes)
+      const filteredArtwork = filterArtwork(queryRes.data)
+      console.log('NEXT FILTERED', filteredArtwork)
+      setArtworkData(filteredArtwork)
+    } catch(err) {
+      console.log(err)
+    }
 
   }
 
@@ -60,29 +68,29 @@ export default function App() {
 
   return (
     <div className='flex flex-row'>
-      <div className='h-screen fixed flex bg-slate-300 hover:bg-slate-200 duration-150 invisible sm:visible'>
+      <div className='h-screen fixed flex bg-slate-300 hover:bg-slate-200 duration-150 invisible xl:visible'>
         <button type="button" onClick={(e) => handlePrevPage(e)} className='text-slate-400'>
-          <IoChevronBack size={120} />
+          <IoChevronBack size={70} />
         </button>
       </div>
       <div className='container mx-auto pt-20 pb-20 text-slate-800'>
         <header className='container p-2 pb-20 mx-auto'>
-          <h1 className='font-header font-extrabold text-8xl pb-8'>
+          <h1 className='font-header font-extrabold sm:text-8xl text-5xl pb-8'>
             Artful Colour <br /> Palettes
           </h1>
           <p className='font-sans'>
-            Explore colour palettes generated from images of works of art found in the Art Institute of Chicago's extensive collection.
+            Explore colour palettes generated from artworks in the Art Institute of Chicago's collection.
           </p>
         </header>
-        <main>
-          <div className='masonry sm:masonry-sm md:masonry-md'>
+        <main className='flex justify-center'>
+          <div className='masonry sm:masonry-sm lg:masonry-lg'>
             {artworkData && renderArtworks()}
           </div>
         </main>
       </div>
-      <div className='h-screen fixed flex right-0 top-0 bg-slate-300 hover:bg-slate-200 duration-150 invisible sm:visible'>
+      <div className='h-screen fixed flex right-0 top-0 bg-slate-300 hover:bg-slate-200 duration-150 invisible xl:visible'>
         <button type="button" onClick={(e) => handleNextPage(e)} className='text-slate-400'>
-          <IoChevronForwardOutline size={120} />
+          <IoChevronForwardOutline size={70} />
         </button>
       </div>
     </ div>

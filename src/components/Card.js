@@ -10,23 +10,23 @@ export default function Card({ artwork }) {
   const sortedColors = colors && hexSorter.sortColors(colors, 'mostBrightColor')
 
   const renderColours =() => (
-    <div className='flex flex-row'>
+    <div className='flex flex-row shrink'>
       {sortedColors.map(color => (
         <div
           key={uuidv4()}
-          className='min-h-0 w-full py-14 px-8 items-end hover:basis-full hover:cursor-pointer first:rounded-tl first:rounded-bl last:rounded-tr last:rounded-br'
+          className='min-h-0 w-full py-14 px-8items-end first:rounded-tl first:rounded-bl last:rounded-tr last:rounded-br'
           style={{ backgroundColor: `${color}` }}
         >
-          {/* <p className='text-xs mix-blend-normal hover:mix-blend-overlay'>{color}</p> */}
+          <p className='text-xs invisible hover:visible hover:mix-blend-overlay'>{color}</p>
         </div>
       ))}
     </div>
   )
 
   return (
-    <article className='mb-20 mr-8 last:m-0 p-4 max-w-lg self-start break-inside-avoid border-solid border border-slate-200 shadow-2xl rounded'>
+    <article className='mb-20 last:m-0 p-4 max-w-lg self-start break-inside-avoid border-solid border border-slate-200 shadow-2xl rounded'>
       <figcaption className='mb-8 font-header'>
-        <span className='font-semibold'>{artwork.title}</span> <br />
+        <span className='font-semibold text-lg'>{artwork.title}</span> <br />
         {artwork.artist_display}
       </figcaption>
       <figure className='mb-8'>

@@ -14,14 +14,17 @@
   @variants responsive {
       .masonry {
           column-gap: 1.5em;
+          row-gap: 0.125rem;
           column-count: 1;
       }
       .masonry-sm {
           column-gap: 1.5em;
+          row-gap: 0.125rem;
           column-count: 2;
       }
-      .masonry-md {
+      .masonry-lg {
           column-gap: 1.5em;
+          row-gap: 0.125rem;
           column-count: 3;
       }
       .break-inside {

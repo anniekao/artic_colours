@@ -11,7 +11,7 @@
   - show info as a tooltip? Like on the Criterion Channel for movie info?
 [] random artwork generator
 [] search bar
-[] next / prev page arrows - have the arrows on the right and left side of the screen and accessible at any time
+[] next / prev page arrows - have the arrows on the right and left side of the screen and accessible at any time on larger screens, hidden on mobile
 
 # Features
 [] as a user I want to choose a department or subject, e.g. African Art, and have palettes generated from objects in that Collection
@@ -38,6 +38,9 @@ As an alternative to that, I'm now using [React Palette](https://github.com/leon
 
 This is also the first project I've done using [Tailwind CSS](https://tailwindcss.com), so that I can get a feel for how styling with utility classes works and how customizable it is. I've been hearing a lot about design tokens in the past year, so it would interesting to see if Tailwind CSS would naturally pair with that concept.
   - One thing to consider: making resuable components with Tailwind means having to pass a list of classNames into a component to get it rendered with a specific look, this would make the code look very chaotic inside of the reusable component itself
+
+- Pagination
+  - first try: arrows on either side of the screen to go forward/back. Not great on mobile or tablet screens, maybe on those screens have a bottom nav with forward/back buttons
 
 # References
 - [Art Institute of Chicago's API](https://api.artic.edu/docs)
