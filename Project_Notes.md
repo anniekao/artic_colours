@@ -2,6 +2,7 @@
 
 
 # Design Todos
+[] fix issue where hex value colour isn't visible on dark backgrounds
 [x] fix issue when there is only one card - current bug shows the card broken up into three columns -> col 1 is the title, 2 the image, three the palette
 [] add footer
 [x] get colour palette hex to display - hover over the colour, have the square expand and the colour hex value appear, copy the hex to the clipboard on click, see coolors for an example of the expected behaviour
@@ -14,10 +15,11 @@
 [x] next / prev page arrows - have the arrows on the right and left side of the screen and accessible at any time on larger screens, hidden on mobile
   - for now, settled on having arrows at the top and bottom of the page, since this was the solution that would work on all devices
 [] display a toast message when the hex has been successfully copied
-[] replace hex value with a checkmark icon on copy
+[x] replace hex value with a checkmark icon on copy
+[] dark mode
 
 # Features
-[] as a user I want to choose a department or subject, e.g. African Art, and have palettes generated from objects in that Collection
+[] as a user I want to search by colour, filter by type of art
 [x] as a user I want to have palettes shown in squares
 [] as a user I want to see information about the art
 [] as a user I want to be able to save palettes
