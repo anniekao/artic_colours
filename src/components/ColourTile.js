@@ -1,11 +1,17 @@
 import React, { useState } from 'react'
-import { IoIosCheckmarkCircle } from 'react-icons/io'
+import { MdOutlineCheck } from 'react-icons/md'
+import { copyHexToClipboard } from '../helpers/helpers'
+import { toast } from 'react-toastify'
 
-function ColourTile({ hexValue, copy }){
+function ColourTile({ hexValue }){
   // eslint-disable-next-line no-unused-vars
   const [clicked, setIsClicked] = useState(false)
   const [iconClass, setIconClass] = useState('')
   const [hexTextClass, setHexTextClass] = useState('')
+
+  const handleCopy = (hexValue) => {
+    copyHexToClipboard(hexValue)
+  }
 
   const handleClick = () => {
     const clicked = true
@@ -13,6 +19,7 @@ function ColourTile({ hexValue, copy }){
     if(clicked) {
       setIconClass('absolute opacity-100')
       setHexTextClass('opacity-0')
+      toast.dark(`${hexValue} copied to clipboard!`)
     }
   }
 
@@ -27,11 +34,11 @@ function ColourTile({ hexValue, copy }){
 
   return (
     <div
-      className='flex items-center justify-center shrink min-h-0 w-1/4 py-8 px-2 group hover:cursor-pointer hover:w-1/2 transition-all first:rounded-tl first:rounded-bl last:rounded-tr last:rounded-br'
+      className='flex items-center justify-center min-h-0 w-1/4 py-8 px-2 group hover:cursor-pointer hover:w-1/2 transition-all first:rounded-tl first:rounded-bl last:rounded-tr last:rounded-br'
       style={{ backgroundColor: `${hexValue}` }}
       onClick={(e) => {
         e.preventDefault()
-        copy(hexValue)
+        handleCopy(hexValue)
         handleClick()
       }}
       onMouseLeave={(e) => {
@@ -39,10 +46,17 @@ function ColourTile({ hexValue, copy }){
         handleMouseLeave()
       }}
     >
-      <span className={iconClass ? iconClass : 'opacity-0'}><IoIosCheckmarkCircle size={40} /></span>
-      <span className={hexTextClass ? hexTextClass : 'absolute opacity-0 group-hover:opacity-100 text-s mix-blend-hard-light'}>{hexValue}</span>
+      <span className={iconClass ? iconClass : 'opacity-0'}>
+        <MdOutlineCheck size={36} />
+      </span>
+      <span className={
+        hexTextClass
+          ? hexTextClass
+          : 'absolute opacity-0 group-hover:opacity-100 text-md mix-blend-hard-light'}>
+        {hexValue}
+      </span>
     </div>
   )
 }
 
-export default React.memo(ColourTile)
+export default ColourTile

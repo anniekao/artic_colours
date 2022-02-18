@@ -3,6 +3,8 @@ import articService from './services/articService.js'
 import Card from './components/Card'
 import PageNav from './components/PageNav.js'
 import { filterArtwork } from './helpers/helpers.js'
+import { ToastContainer } from 'react-toastify'
+import 'react-toastify/dist/ReactToastify.min.css'
 
 export default function App() {
   const [queryData, setQueryData] = useState(null)
@@ -75,27 +77,35 @@ export default function App() {
   let mainGridLayout = handleFewItemsLayout()
 
   return (
-    <div className='container mx-auto pt-20 pb-20 pr-4 pl-4 text-slate-800'>
-      <header className='container p-2 pb-20 mx-auto'>
-        <h1 className='font-header font-extrabold sm:text-8xl text-7xl pb-8'>
+    <>
+      <div className='container mx-auto pt-20 pb-20 pr-4 pl-4 text-slate-800'>
+        <header className='container p-2 pb-20 mx-auto'>
+          <h1 className='font-header font-extrabold sm:text-8xl text-7xl pb-8'>
             Artful Colour <br /> Palettes
-        </h1>
-        <p className='font-sans'>
+          </h1>
+          <p className='font-sans'>
             Explore colour palettes generated from artworks in the Art Institute of Chicago's collection.
-        </p>
-      </header>
-      <div className='mb-20'>
-        <PageNav handleNextPage={handleNextPage} handlePrevPage={handlePrevPage} />
-      </div>
-      <main className='flex justify-center'>
-        <div className={mainGridLayout}>
-          {artworkData && renderArtworks()}
+          </p>
+        </header>
+        <div className='mb-20'>
+          <PageNav handleNextPage={handleNextPage} handlePrevPage={handlePrevPage} />
         </div>
-      </main>
-      <div className='mt-20'>
-        <PageNav handleNextPage={handleNextPage} handlePrevPage={handlePrevPage} />
+        <main className='flex justify-center'>
+          <div className={mainGridLayout}>
+            {artworkData && renderArtworks()}
+          </div>
+        </main>
+        <div className='mt-20'>
+          <PageNav handleNextPage={handleNextPage} handlePrevPage={handlePrevPage} />
+        </div>
+        <ToastContainer
+          toastClassName='bg-slate-800 relative flex p-1 w-100 rounded-md justify-between overflow-hidden cursor-pointer'
+          bodyClassName='text-sm font-white font-med block p-3 text-center'
+          position='bottom-center'
+          autoClose={2000}
+          hideProgressBar={true}
+        />
       </div>
-    </div>
-
+    </>
   )
 }

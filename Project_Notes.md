@@ -1,7 +1,8 @@
 # Project Description
+A website to explore colour palettes generated from artworks found in the collection at the Art Institute of Chicago using their API. This project is not affiliated with @art-institute-of-chicago.
 
-
-# Design Todos
+# Design/Code Todos
+[] DRY up data fetching, maybe create a custom hook for fetching/filtering data since initial fetch and fetching the next/prev page actions are identical
 [] fix issue where hex value colour isn't visible on dark backgrounds
 [x] fix issue when there is only one card - current bug shows the card broken up into three columns -> col 1 is the title, 2 the image, three the palette
 [] add footer
@@ -46,6 +47,9 @@ This is also the first project I've done using [Tailwind CSS](https://tailwindcs
 
 - Pagination
   - first try: arrows on either side of the screen to go forward/back. Not great on mobile or tablet screens, maybe on those screens have a bottom nav with forward/back buttons
+
+- Semantic HTML
+  - what would be the correct tags for a toast notification? Aside? Strong? A plain ol' div?
 
 # References
 - [Art Institute of Chicago's API](https://api.artic.edu/docs)

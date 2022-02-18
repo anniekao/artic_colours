@@ -2,7 +2,6 @@ import React from 'react'
 import { v4 as uuidv4 } from 'uuid'
 import hexSorter from 'hexsorter'
 import { usePalette } from 'react-palette'
-import { copyHexToClipboard } from '../helpers/helpers'
 import ColourTile from './ColourTile'
 
 export default function Card({ artwork }) {
@@ -10,18 +9,11 @@ export default function Card({ artwork }) {
   const { data } = usePalette(imgUrl)
   const colors = Object.keys(data).map(k => (data[k]))
   const sortedColors = colors && hexSorter.sortColors(colors, 'mostBrightColor')
-  // const [copySuccess, setCopySuccess] = useState('')
 
-  const handleCopy = (hexValue) => {
-    copyHexToClipboard(hexValue)
-    // setCopySuccess(`${hexValue} copied to clipboard!`)
-  }
-
-  // console.log(copySuccess)
   const renderColours =() => (
     <div className='flex flex-row'>
       {sortedColors.map(hexValue => (
-        <ColourTile key={uuidv4()} copy={handleCopy} hexValue={hexValue} />
+        <ColourTile key={uuidv4()} hexValue={hexValue} />
       ))}
     </div>
   )
