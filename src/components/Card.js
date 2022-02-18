@@ -21,8 +21,9 @@ export default function Card({ artwork }) {
   return (
     <article className='mb-20 last:m-0 p-4 max-w-sm md:max-w-lg self-start break-inside-avoid border-solid border border-slate-200 shadow-2xl rounded'>
       <figcaption className='mb-8 font-header'>
-        <span className='font-semibold text-lg'>{artwork.title}</span> <br />
-        {artwork.artist_display}
+        <span className='font-semibold text-lg'>{artwork.title} ({artwork.date_display})</span> <br />
+        {artwork.artist_title} <br />
+        {artwork.place_of_origin}
       </figcaption>
       <figure className='mb-8'>
         <img

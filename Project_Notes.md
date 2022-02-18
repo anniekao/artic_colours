@@ -15,7 +15,7 @@ A website to explore colour palettes generated from artworks found in the collec
 [] search bar
 [x] next / prev page arrows - have the arrows on the right and left side of the screen and accessible at any time on larger screens, hidden on mobile
   - for now, settled on having arrows at the top and bottom of the page, since this was the solution that would work on all devices
-[] display a toast message when the hex has been successfully copied
+[x] display a toast message when the hex has been successfully copied
 [x] replace hex value with a checkmark icon on copy
 [] dark mode
 
@@ -27,7 +27,6 @@ A website to explore colour palettes generated from artworks found in the collec
 [x] as a user I want to see hex values for colours
 [x] as a user I want to be able to copy values to my clipboard
 [] as a user I want to be able to like color palettes
-[] random image / colour palette feature with a 'generate' button
 [] images link to the art institute
 
 # Challenges

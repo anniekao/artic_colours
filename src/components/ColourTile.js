@@ -17,7 +17,7 @@ function ColourTile({ hexValue }){
     const clicked = true
     setIsClicked(clicked)
     if(clicked) {
-      setIconClass('absolute opacity-100')
+      setIconClass('absolute opacity-100 transition-opacity')
       setHexTextClass('opacity-0')
       toast.dark(`${hexValue} copied to clipboard!`)
     }
@@ -52,7 +52,7 @@ function ColourTile({ hexValue }){
       <span className={
         hexTextClass
           ? hexTextClass
-          : 'absolute opacity-0 group-hover:opacity-100 text-md mix-blend-hard-light'}>
+          : 'absolute opacity-0 group-hover:opacity-100 transition-opacity text-md mix-blend-hard-light'}>
         {hexValue}
       </span>
     </div>
