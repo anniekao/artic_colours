@@ -1,5 +1,5 @@
 # Intro
-A website to explore colour palettes generated from artworks found in the collection at the Art Institute of Chicago using their API. This project is not affiliated with @art-institute-of-chicago.
+A website to explore colour palettes generated from artworks found in the collection at the Art Institute of Chicago using [their API](https://api.artic.edu/docs). This project is not affiliated with @art-institute-of-chicago.
 
 # Setup
 Clone the repo, cd into the project folder and run `npm start`. The site will be running locally at [http://localhost:3000](http://localhost:3000).
@@ -7,7 +7,7 @@ Clone the repo, cd into the project folder and run `npm start`. The site will be
 It's also been deployed with Netlify. Give it a go: [https://keen-beaver-bf6883.netlify.app/](https://keen-beaver-bf6883.netlify.app/)
 
 # Challenges
-I started this project using[The Metropolitan Museum of Art Collection API](https://github.com/metmuseum/) to get images of objects from the collection, but
+I started this project using [The Metropolitan Museum of Art Collection API](https://github.com/metmuseum/) to get images of objects from the collection, but
 found calling the API quite slow and more often than not, some requests outright failed. This may be because of needing to make two calls: one to query for
 object ids and a second to get information for all those ids. It had a 'search' route that allowed for queries, but it required a specific query, e.g. 'cats', and I couldn't just search for everything in the Modern Art department that had an image, for example. If possible, I'd like to revisit this in the future and try to incorporate MoMA again since it has such a rich collection of objects.
 
